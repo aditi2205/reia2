@@ -4,16 +4,16 @@ import sys
 import yaml
 import requests
 import subprocess
-
+import folder, network, file, system, general
 my_path = os.path.abspath(os.path.dirname(__file__))
 
-SLACK_PATH = os.path.join(my_path, "../src/intents")
+#SLACK_PATH = os.path.join(my_path, "../src/intents")
 
-def construct_command(user_input,label,tokens,mapping,tags,exec_command,user_tag):
+def construct_command(user_input,label,tokens,mapping,tags,exec_command):
 	command = ""
 	response = 0
-	sys.path.insert(0,SLACK_PATH)
-	import slack
+	#sys.path.insert(0,SLACK_PATH)
+	#import slack
 	if label == 'folder':
 		from folder import construct_command
 		command,response = construct_command(user_input,label,tokens,mapping,tags)
@@ -36,13 +36,17 @@ def construct_command(user_input,label,tokens,mapping,tags,exec_command,user_tag
 
 	if exec_command == False:
 		if response == 0:
-			slack.post_message("@"+user_tag+" "+command)
+			#slack.post_message("@"+user_tag+" "+command)
+			print(command)
 		else:
-			slack.post_message(map_val)
+			#slack.post_message(map_val)
+			print(map_val)
 	else:
 		if(response == 0):
-			slack.post_message("Executing command : \n"+command)
-		slack.post_message(execute_command(command,response))
+			#slack.post_message("Executing command : \n"+command)
+			print("Executing command : \n"+command)
+		#slack.post_message(execute_command(command,response))
+		print(execute_command(command,response))
 
 def execute_command(command,response):
 	proc = subprocess.Popen([command], stdout=subprocess.PIPE, shell=True)  	

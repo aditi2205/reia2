@@ -21,7 +21,9 @@ from sklearn.svm import LinearSVC
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn import preprocessing
-
+from slack import post_message
+from slack import read_message
+from slack import upload_file
 def signal_handler(signal, frame):
 	print ('Thank You!')
 	sys.exit(0)
@@ -108,7 +110,7 @@ def call_reia():
 				call_reia()
 		print('-----------------------')
 		user_input = first_line.split(' ', 1)[1]
-		user_name = get_username(first_line.split(' ', 1)[0])
+		#user_name = get_username(first_line.split(' ', 1)[0])
 		suggest_list = []
 		suggest_message = ""
 		#prev_ts = ts
@@ -129,7 +131,7 @@ def call_reia():
 		with open(MAPPING_PATH,'r') as data_file:    
 			data = json.load(data_file)	
 		for i in data[label]:
-			dist = jf.jaro_distance(str(user_input),str(i))
+			dist = jf.jaro_distance(unicode(str(user_input),encoding="utf-8"), unicode(str(i),encoding="utf-8"))
 			suggest_list.append(tuple((dist,i)))
 			print(dist)
 			if(dist > max_score):
@@ -146,8 +148,9 @@ def call_reia():
 				post_message(suggest_message)
 			continue
 		print("\nMapped to : "+map_val)
+		
 		#post_message(map_val)
-		construct_command(user_input,label,tokens,map_val,stanford_tag,exec_command,user_name)
+		construct_command(user_input,label,tokens,map_val,stanford_tag,exec_command)
 		#call('sed -i -e "1d	" REIA/mqueue.txt')
 		consume_message()
 		#print(response)

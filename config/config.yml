@@ -20,9 +20,9 @@ slack:
   channel_info: https://slack.com/api/channels.info
 
 tagger:
-  path: /path_to_postagger/postagger/stanford-postagger.jar
+  path: /media/ubuntu/Local Disk/MAJOR_PROJECT/stanford-postagger/stanford-postagger.jar
   model: english-bidirectional-distsim.tagger
-  path_to_models: /path_to_postagger/postagger/models
+  path_to_models: /media/ubuntu/Local Disk/MAJOR_PROJECT/stanford-postagger/models
 
 preferences:
   execute: False

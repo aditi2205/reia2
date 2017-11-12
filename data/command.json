@@ -15,7 +15,7 @@
 		"delete in":"rm -rf",
 		"delete from":"rm -rf",
 		"list contents of":"ls",
-        "show contents of":"ls",
+                "show contents of":"ls",
 		"list":"ls",
 		"open folder":"cd; ls",
 		"open directory":"cd; ls",
