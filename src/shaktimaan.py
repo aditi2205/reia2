@@ -38,7 +38,7 @@ data={
 	},
 	'display': {
 		'ls':["files"],
-		'cat':["concatenate","display"],
+		'cat':["concatenate","display", "combine", "print"],
 		'dirname':["directory","name",],
 		'echo':["print","text"],
 		'less':["less"],
@@ -49,9 +49,26 @@ data={
 		'ps':["process","active","running"],
 		'who':["logged","user"],
 		'whoami':["current","user"],
-		'cat':["calender"],
+		'cal':["calender"],
 		'date':["date"],
 		'pwd':["working","directory"],
+	},
+	'create': {
+		'mkdir':[ "directory", "folder"],
+		'mkfifo':["named", "pipe"],
+		'mknod':["special","file",],
+		'touch':["file","update", "timestamp"],
+		'ln':["symbolic", "hard", "link"],
+		
+	},
+	'compare': {
+		'cmp':[ "binary", "files"],
+		'diff':["text", "files"],
+		
+	},
+	'search': {
+		'grep':[ "match", "regular", "expression"],
+		
 	},
 }
 
