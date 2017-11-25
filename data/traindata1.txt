@@ -1,0 +1,31 @@
+Change a group
+Change a permissions
+Change a user ownership
+Change the password
+List file
+Display and concatenate
+Extract the directory from a filename
+Print text
+Display less a text file
+Display more a text file
+Display the first lines
+Display the last lines
+Display the traditional Unix online manual
+Display process
+Display how much processor and system time a process takes
+Show the process with the most resource consumption
+Display who is logged on
+Display the current user
+Display the first matching program in the current path
+Show a calendar
+Display the current date
+Print the working directory
+Create a directory
+Create a named pipe
+Create a special file
+Create a file or updates a file's timestamp
+Create a symbolic or hard link
+Compare binary files
+Compare text files
+Search for lines matching a regular expression
+Search for a file
