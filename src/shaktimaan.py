@@ -37,10 +37,10 @@ data={
 		'passwd':["password"],
 	},
 	'display': {
-		'ls':["files"],
+		'ls':["contents","list","files","current", "directory"],
 		'cat':["concatenate","display", "combine", "print"],
 		'dirname':["directory","name",],
-		'echo':["print","text"],
+		'echo':["text"],
 		'less':["less"],
 		'more':["more"],
 		'head':["first","lines"],
@@ -123,7 +123,12 @@ def suggestions(suggest_list):
     suggest = (sorted(suggest_list,reverse=True)[:5])
     return suggest
 
-
+def execute_command(command):
+	import subprocess
+	p = subprocess.Popen([command], stdout=subprocess.PIPE)
+	output, err = p.communicate()
+	print  output
+	
 
 def call_reia():
     		max_score = 0.1
@@ -154,9 +159,9 @@ def call_reia():
 			if i == label:
 				continue
 			sentence_tokens.append(i)
-		print "sent token"
-		for item in sentence_tokens:
-			print item
+		#print "sent token"
+		#for item in sentence_tokens:
+		#	print item
 
 		#with open(MAPPING_PATH,'r') as data_file:    
 		#	data = json.load(data_file)
@@ -178,13 +183,15 @@ def call_reia():
 					dist = jf.jaro_distance(unicode((item),encoding="utf-8"), unicode(str(i),encoding="utf-8"))
 					if dist>=0.8:
 						cnt=cnt+1
-						print "i "+i+"item "+item
+						#print "i "+i+"item "+item
 
 			if cnt>maxlabel:
 				print "comm is:"+comm
 				maxlabel=cnt
 				category=comm
 		print "category is:"+category
+		print "executing..."
+		execute_command(category)
 		
 
 
