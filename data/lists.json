@@ -1,0 +1,8 @@
+{
+ 
+   "noun":["NN", "NNS", "NNP", "NNPS"],
+   "ADJECTIVE" : ["JJ", "JJR", "JJS"],
+   "VERB": ["VB", "VBD", "VBG", "VBN", "VBP", "VBZ"],
+   "ADVERB" :["JJ", "JJR", "JJS"],
+   "DETERMINER" : 
+}

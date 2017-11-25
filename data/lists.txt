@@ -1,0 +1,20 @@
+{
+ 
+	   "noun":["NN", "NNS", "NNP", "NNPS"],
+	   "ADJECTIVE" : ["JJ", "JJR", "JJS"],
+	   "VERB": ["VB", "VBD", "VBG", "VBN", "VBP", "VBZ"],
+	   "ADVERB" :["RB", "RBR", "RBS", "WRB"],
+	   "DETERMINER" : DT, PDT, WDT
+	    MODAL: MD
+	    PRONOUN: WP, PRP
+	    PARTICLE: RP
+	    SYMBOL: SYM
+	    CARDINAL: CD
+            CONJUNCTION: CC
+	    PREPOSITION: IN
+            EXISTENTIAL: EX
+            INTERJECTION: UH
+	   
+	
+
+}

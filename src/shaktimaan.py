@@ -47,8 +47,8 @@ data={
 		'tail':["last","lines"],
 		'man':["manual","help"],
 		'ps':["process","active","running"],
-		'who':["logged","user"],
-		'whoami':["current","user"],
+		'who':["logged","user", "username"],
+		'whoami':["current","user", "username"],
 		'cal':["calender"],
 		'date':["date"],
 		'pwd':["working","directory"],
@@ -73,7 +73,20 @@ data={
 }
 
 
-
+noun=[]
+adjective=[]
+verb=[]
+adverb=[]
+determiner=[]
+pronoun=[]
+modal=[]
+particle=[]
+symbol=[]
+cardinal=[]
+conjuction=[]
+preposition=[]
+interjection=[]
+existential=[]
 
 
 signal.signal(signal.SIGINT, signal_handler)
@@ -150,7 +163,12 @@ def call_reia():
 		print("Classified as : "+str(label))
 		st = StanfordPOSTagger(config['tagger']['model'],path_to_jar=config['tagger']['path'])
 		stanford_tag = st.tag(user_input.split())
-		#print("Tags")
+
+		print("Tags")
+		cnt=0;
+		for item in enumerate(stanford_tag):
+                	print item
+			
 		#print(stanford_tag)
 		tokens = nltk.word_tokenize(user_input)
 		print(tokens)
@@ -190,6 +208,7 @@ def call_reia():
 				maxlabel=cnt
 				category=comm
 		print "category is:"+category
+
 		print "executing..."
 		execute_command(category)
 		
