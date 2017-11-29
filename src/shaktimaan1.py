@@ -30,6 +30,15 @@ def signal_handler(signal, frame):
 
 
 data={
+	'move': {
+		'mv':["file", "folder", "directory"]
+	},
+	'copy': {
+		'cp':["file", "folder", "directory"]
+	},
+	'remove': {
+		'rm':["file", "folder", "directory"]
+	},
 	'change': {
 		'chgrp':["group"],
 		'chmod':["permission"],
@@ -74,6 +83,9 @@ data={
 
 command_format={
 	"ls":[],
+	"mv":["noun", "noun"],
+	"cp":["noun", "noun"],
+	"rm":["noun", "noun"],
 	"cat":["noun", "noun"],
 	"dirname":["string"],
 	"echo":["string"],
@@ -219,11 +231,14 @@ def construct_command(category):
 	mycommand= mycommand+ str(category)+ str(" ")
 	for item in myformat:
 		if item=="noun":
-			mycommand=mycommand+str(noun[0])+str(" ")
-			del noun[0]
+			if len(noun)!=0 :
+				mycommand=mycommand+str(noun[0])+str(" ")
+				del noun[0]
+			else:
+				continue
 		elif item=="verb":
 			mycommand=mycommand+str(verb[0])+str(" ")
-			del noun[0]
+			del verb[0]
 	
 	print mycommand
 	print "executing..."

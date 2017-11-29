@@ -1,3 +1,6 @@
+Move a file
+Copy a file
+Remove a file
 Change a group
 Change a permissions
 Change a user ownership

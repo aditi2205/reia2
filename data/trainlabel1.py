@@ -1,4 +1,7 @@
 y_train_text = [
+    ["move"],
+    ["copy"],
+    ["remove"],
     ["change"],
     ["change"],
     ["change"],
